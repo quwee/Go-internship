@@ -9,9 +9,6 @@ import (
 var reg = regexp.MustCompile("[^a-zA-Z0-9]+")
 
 func IsPalindrome1(s string) bool {
-	if len(s) == 0 {
-		return false
-	}
 	s = reg.ReplaceAllString(strings.ToLower(s), "")
 	n := len(s)
 	for i := 0; i < n/2; i++ {
@@ -23,9 +20,6 @@ func IsPalindrome1(s string) bool {
 }
 
 func IsPalindrome2(s string) bool {
-	if len(s) == 0 {
-		return false
-	}
 	s = reg.ReplaceAllString(strings.ToLower(s), "")
 	bytes := []byte(s)
 	slices.Reverse(bytes)
@@ -39,9 +33,6 @@ func IsPalindrome2(s string) bool {
 }
 
 func IsPalindrome3(s string) bool {
-	if len(s) == 0 {
-		return false
-	}
 	s = reg.ReplaceAllString(strings.ToLower(s), "")
 	return checkPalindromeRec(s)
 }

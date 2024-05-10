@@ -18,7 +18,7 @@ var testcases = []testcase{
 	{4, "d", true},
 	{5, "ab", false},
 	{6, "abc", false},
-	{7, "", false},
+	{7, "", true},
 	{8, "abc cba abc cba", true},
 	{9, "Mr. Owl ate my metal worm", true},
 }

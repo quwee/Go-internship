@@ -1,7 +1,7 @@
 package exercise2
 
 func RemoveDuplicates(strings []string) []string {
-	uniqueSet := make(map[string]struct{}, 1)
+	uniqueSet := make(map[string]struct{})
 	result := make([]string, 0, 1)
 
 	for _, s := range strings {
