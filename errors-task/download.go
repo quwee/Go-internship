@@ -26,7 +26,7 @@ func downloadFile(fileUrl, fileName string) error {
 	}
 
 	if parsedUrl.Scheme == "" || parsedUrl.Host == "" {
-		return fmt.Errorf("%w: empty host or scheme", ErrInvalidUrl)
+		return fmt.Errorf("%w: incorrect host or scheme", ErrInvalidUrl)
 	}
 
 	// create context

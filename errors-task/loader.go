@@ -23,15 +23,16 @@ func main() {
 	err := downloadFile(*urlArgPtr, *outputArgPtr)
 
 	if err != nil {
-		if errors.Is(err, ErrInvalidUrl) {
+		switch {
+		case errors.Is(err, ErrInvalidUrl):
 			fmt.Printf("Error: %v\nEnter correct URL\n", err)
-		} else if errors.Is(err, ErrConnectionFailed) {
+		case errors.Is(err, ErrConnectionFailed):
 			fmt.Printf("Error: %v\nCheck your connection and try again\n", err)
-		} else if errors.Is(err, ErrDownloadFailed) {
+		case errors.Is(err, ErrDownloadFailed):
 			fmt.Printf("Error: %v\nCheck file availability for download\n", err)
-		} else if errors.Is(err, ErrFileNotFound) {
+		case errors.Is(err, ErrFileNotFound):
 			fmt.Printf("Error: %v\nCheck if the URL is correct or if the file is on the server\n", err)
-		} else {
+		default:
 			fmt.Println(err)
 		}
 	}
