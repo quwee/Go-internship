@@ -40,9 +40,9 @@ func downloadFile(fileUrl, fileName string) error {
 	}
 
 	// perform request
-	var httpClient http.Client
+	var c http.Client
 
-	resp, err := httpClient.Do(req)
+	resp, err := c.Do(req)
 	if err != nil {
 		return fmt.Errorf("%w: %w", ErrConnectionFailed, err)
 	}
