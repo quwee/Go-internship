@@ -22,16 +22,23 @@ func main() {
 
 	switch *shapeArgPtr {
 	case "circle":
-		if *radiusArgPtr < 0 {
+		switch {
+		case *radiusArgPtr == -1:
 			printErrorAndExit("Radius is not defined")
+		case *radiusArgPtr <= 0:
+			printErrorAndExit("Radius must be > 0")
 		}
 		shape = Circle{*radiusArgPtr}
 	case "rectangle":
-		if *heightArgPtr < 0 {
+		switch {
+		case *heightArgPtr == -1:
 			printErrorAndExit("Height is not defined")
-		}
-		if *widthArgPtr < 0 {
+		case *heightArgPtr <= 0:
+			printErrorAndExit("Height must be > 0")
+		case *widthArgPtr == -1:
 			printErrorAndExit("Width is not defined")
+		case *widthArgPtr <= 0:
+			printErrorAndExit("Width must be > 0")
 		}
 		shape = Rectangle{*heightArgPtr, *widthArgPtr}
 	default:
